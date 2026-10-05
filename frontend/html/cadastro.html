@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cadastro de veículos do Sistema de Estacionamento."/>
+
+    <!-- Ligação com o arquivo CSS específico da página de cadastro -->
+    <link rel="stylesheet" href="/frontend/css/cadastro.css" />
+
+    <title>Cadastrar Veículo | Sistema de Estacionamento</title>
+  </head>
+
+  <body class="page-body">
+    <!-- ========================================= -->
+    <!-- CABEÇALHO -->
+    <!-- ========================================= -->
+
+    <header class="site-header">
+      <h1 class="header-title">Sistema de Estacionamento</h1>
+      <p class="header-subtitle">Cadastro de veículos</p>
+
+      <nav class="main-nav">
+        <a href="/frontend/index.html" class="nav-link"> Início </a>
+        <a href="/frontend/html/cadastro.html" class="nav-link"> Cadastrar veículo </a>
+        <a href="/frontend/html/veiculos.html" class="nav-link"> Veículos </a>
+      </nav>
+    </header>
+
+    <!-- ========================================= -->
+    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ========================================= -->
+
+    <main class="site-main">
+      <section class="card-section">
+        <h2 class="section-title">Cadastrar veículo</h2>
+        <p class="section-text">Preencha as informações abaixo para cadastrar um veículo.</p>
+
+        <!-- ================================= -->
+        <!-- FORMULÁRIO -->
+        <!-- ================================= -->
+
+        <form class="vehicle-form">
+          <!-- PLACA -->
+          <div class="form-group">
+            <label for="placa" class="form-label">Placa:</label>
+            <input type="text" id="placa" name="placa" placeholder="Ex.: ABC1D23" maxlength="7" class="form-input" required/>
+          </div>
+
+          <!-- MODELO -->
+          <div class="form-group">
+            <label for="modelo" class="form-label">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" placeholder="Ex.: Civic" class="form-input" required/>
+          </div>
+
+          <!-- TIPO -->
+          <div class="form-group">
+            <label for="tipo" class="form-label">Tipo do veículo:</label>
+            <select id="tipo" name="tipo" class="form-select" required>
+              <option value="">Selecione</option>
+              <option value="Carro">Carro</option>
+              <option value="Moto">Moto</option>
+            </select>
+          </div>
+
+          <!-- VALOR POR HORA -->
+          <div class="form-group">
+            <label for="valorHora" class="form-label">Valor por hora:</label>
+            <input type="number" id="valorHora" name="valorHora" placeholder="Ex.: 10.00" min="0" step="0.01" class="form-input" required/>
+          </div>
+
+          <!-- HORAS ESTACIONADO -->
+          <div class="form-group">
+            <label for="horasEstacionado" class="form-label">Horas estacionado:</label>
+            <input type="number" id="horasEstacionado" name="horasEstacionado" value="0" min="0" class="form-input"/>
+          </div>
+
+          <!-- SITUAÇÃO -->
+          <div class="form-group">
+            <label for="estacionado" class="form-label">Situação:</label>
+            <select id="estacionado" name="estacionado" class="form-select">
+              <option value="true">Estacionado</option>
+              <option value="false">Não estacionado</option>
+            </select>
+          </div>
+
+          <!-- BOTÕES -->
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">Cadastrar veículo</button>
+            <button type="reset" class="btn-reset">Limpar formulário</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- ORIENTAÇÃO -->
+      <!-- ========================================= -->
+
+      <section class="card-section">
+        <h2 class="section-title">Orientações</h2>
+
+        <ul class="guidelines-list">
+          <li class="guideline-item">Informe corretamente a placa do veículo.</li>
+          <li class="guideline-item">Informe o modelo do veículo.</li>
+          <li class="guideline-item">Selecione se o veículo é carro ou moto.</li>
+          <li class="guideline-item">Informe o valor cobrado por hora.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- ========================================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================================= -->
+
+    <footer class="site-footer">
+      <p class="footer-text">Sistema de Estacionamento</p>
+      <p class="footer-text">Projeto desenvolvido para fins educacionais.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+/* =========================================================
+   ESTILOS GERAIS (style.css)
+   ========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+body.page-body, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  color: #333333;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Cabeçalho padrão */
+.site-header, header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 25px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 20px;
+}
+
+.header-title, header h1 {
+  margin: 0 0 5px 0;
+  font-size: 26px;
+}
+
+.header-subtitle, header p {
+  margin: 0 0 15px 0;
+  color: #bdc3c7;
+  font-size: 14px;
+}
+
+/* Navegação Flexbox */
+.main-nav, header nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.main-nav .nav-link, header nav a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.main-nav .nav-link:hover, header nav a:hover {
+  background-color: #34495e;
+  color: #3498db;
+}
+
+/* Seções e Cards */
+.card-section, main section {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section-title, main section h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+/* Rodapé padrão */
+.site-footer, footer {
+  text-align: center;
+  padding: 15px;
+  color: #7f8c8d;
+  font-size: 14px;
+  background-color: #ffffff;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.footer-text, footer p {
+  margin: 3px 0;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+  body.page-body, body {
+    margin: 10px auto;
+    padding: 0 10px;
+  }
+  .main-nav, header nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

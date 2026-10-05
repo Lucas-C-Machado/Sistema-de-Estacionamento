@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Consulta de veículos cadastrados no Sistema de Estacionamento."/>
+
+    <link rel="stylesheet" href="/frontend/css/veiculos.css" />
+
+    <title>Veículos | Sistema de Estacionamento</title>
+  </head>
+
+  <body>
+    <!-- ========================================= -->
+    <!-- CABEÇALHO -->
+    <!-- ========================================= -->
+
+    <header>
+      <h1>Sistema de Estacionamento</h1>
+
+      <p>Gerenciamento de veículos</p>
+
+      <nav>
+        <a href="/frontend/index.html"> Início </a>
+        <a href="/frontend/html/cadastro.html"> Cadastrar veículo </a>
+        <a href="/frontend/html/veiculos.html"> Veículos </a>
+      </nav>
+    </header>
+
+    <!-- ========================================= -->
+    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ========================================= -->
+
+    <main>
+      <section>
+        <h2>Veículos cadastrados</h2>
+
+        <p>Consulte abaixo os veículos cadastrados no estacionamento.</p>
+
+        <!-- ================================= -->
+        <!-- TABELA -->
+        <!-- ================================= -->
+
+        <table>
+          <!-- CABEÇALHO DA TABELA -->
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Placa</th>
+              <th>Modelo</th>
+              <th>Tipo</th>
+              <th>Valor/hora</th>
+              <th>Horas</th>
+              <th>Estacionado</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <!-- CORPO DA TABELA -->
+          <tbody>
+            <!-- VEÍCULO 1 -->
+            <tr>
+              <td>1</td>
+
+              <td>CBC1D23</td>
+
+              <td>Civic</td>
+
+              <td>Carro</td>
+
+              <td>R$ 10,00</td>
+
+              <td>3</td>
+
+              <td>Sim</td>
+
+              <td>
+                <button type="button" class="btn-editar" >Editar</button>
+                <button type="button" class="btn-excluir" >Excluir</button>
+              </td>
+            </tr>
+
+            <!-- VEÍCULO 2 -->
+            <tr>
+              <td>2</td>
+
+              <td>XYZ9A87</td>
+
+              <td>CB 500</td>
+
+              <td>Moto</td>
+
+              <td>R$ 7,00</td>
+
+              <td>6</td>
+
+              <td>Sim</td>
+
+              <td>
+                <button type="button">Editar</button>
+
+                <button type="button">Excluir</button>
+              </td>
+            </tr>
+
+            <!-- VEÍCULO 3 -->
+            <tr>
+              <td>3</td>
+
+              <td>DEF4G56</td>
+
+              <td>Corolla</td>
+
+              <td>Carro</td>
+
+              <td>R$ 12,00</td>
+
+              <td>0</td>
+
+              <td>Não</td>
+
+              <td>
+                <button type="button">Editar</button>
+
+                <button type="button">Excluir</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- AÇÕES -->
+      <!-- ========================================= -->
+
+      <section>
+        <h2>Ações</h2>
+
+        <p>Deseja cadastrar outro veículo?</p>
+
+        <a href="/frontend/html/cadastro.html"> Cadastrar novo veículo </a>
+      </section>
+    </main>
+
+    <!-- ========================================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================================= -->
+
+    <footer>
+      <p>Sistema de Estacionamento</p>
+
+      <p>Projeto desenvolvido para fins educacionais.</p>
+    </footer>
+  </body>
+</html>
