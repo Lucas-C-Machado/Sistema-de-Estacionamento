@@ -26,20 +26,45 @@ public abstract class Veiculo implements Calculavel {
         this.estacionado = false;
     }
 
+    // Segundo Construtor
+    public Veiculo(String placa, String modelo, double valorHora, int horasEstacionado, boolean estacionado) {
+
+        if (placa == null || placa.isBlank()) {
+            throw new IllegalArgumentException("A placa não pode estar vazia.");
+        }
+
+        if (modelo == null || modelo.isBlank()) {
+            throw new IllegalArgumentException("O modelo não pode estar vazio.");
+        }
+
+        if (valorHora <= 0) {
+            throw new IllegalArgumentException("O valor por hora deve ser maior que zero.");
+        }
+
+        this.placa = placa;
+        this.modelo = modelo;
+        this.valorHora = valorHora;
+        this.horasEstacionado = horasEstacionado;
+        this.estacionado = estacionado;
+    }
+
     public boolean entrar() {
-        if (estacionado) return false;
+        if (estacionado)
+            return false;
         estacionado = true;
         return true;
     }
 
     public boolean adicionarHoras(int horas) {
-        if (!estacionado || horas <= 0) return false;
+        if (!estacionado || horas <= 0)
+            return false;
         horasEstacionado += horas;
         return true;
     }
 
     public boolean sair() {
-        if (!estacionado) return false;
+        if (!estacionado)
+            return false;
         estacionado = false;
         return true;
     }
@@ -53,11 +78,25 @@ public abstract class Veiculo implements Calculavel {
         return valor;
     }
 
-    public String getPlaca() { return placa; }
-    public String getModelo() { return modelo; }
-    public double getValorHora() { return valorHora; }
-    public int getHorasEstacionado() { return horasEstacionado; }
-    public boolean isEstacionado() { return estacionado; }
+    public String getPlaca() {
+        return placa;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public double getValorHora() {
+        return valorHora;
+    }
+
+    public int getHorasEstacionado() {
+        return horasEstacionado;
+    }
+
+    public boolean isEstacionado() {
+        return estacionado;
+    }
 
     public abstract String getTipo();
 

@@ -1,48 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- ================================================== -->
+    <!-- SPRING BOOT -->
+    <!-- ================================================== -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.7</version>
+        <relativePath />
+    </parent>
+
+    <!-- ================================================== -->
+    <!-- INFORMAÇÕES DO PROJETO -->
+    <!-- ================================================== -->
     <groupId>br.com.senac</groupId>
     <artifactId>SistemaEstacionamento</artifactId>
-    <version>1.0-SNAPSHOT</version> <!--Versão ainda em desenvolvimento-->
+    <version>1.0-SNAPSHOT</version>
 
+    <!-- ================================================== -->
+    <!-- CONFIGURAÇÕES -->
+    <!-- ================================================== -->
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- ================================================== -->
+    <!-- DEPENDÊNCIAS -->
+    <!-- ================================================== -->
     <dependencies>
 
-        <!-- Driver JDBC do MySQL -->
+        <!-- ================================================== -->
+        <!-- SPRING WEB -->
+        <!-- ================================================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- ================================================== -->
+        <!-- DRIVER JDBC DO MYSQL -->
+        <!-- ================================================== -->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <version>9.4.0</version>
         </dependency>
 
+        <!-- Thymeleaf -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
     </dependencies>
 
+
+    <!-- ================================================== -->
+    <!-- BUILD -->
+    <!-- ================================================== -->
+
     <build>
+
         <plugins>
-
-            <!-- Permite executar o Main através do Maven -->
+            <!-- ================================================== -->
+            <!-- SPRING BOOT MAVEN PLUGIN -->
+            <!-- ================================================== -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.6.2</version>
-
-                <configuration>
-                    <mainClass>br.com.senac.estacionamento.Main</mainClass>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
         </plugins>
+
     </build>
 
 </project>

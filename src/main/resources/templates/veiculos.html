@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Consulta de veículos cadastrados no Sistema de Estacionamento."/>
 
-    <link rel="stylesheet" href="/frontend/css/veiculos.css" />
+    <!-- CSS processado pelo Spring Boot -->
+    <link rel="stylesheet" th:href="@{/veiculos.css}" />
 
     <title>Veículos | Sistema de Estacionamento</title>
   </head>
@@ -22,9 +22,9 @@
       <p>Gerenciamento de veículos</p>
 
       <nav>
-        <a href="/frontend/index.html"> Início </a>
-        <a href="/frontend/html/cadastro.html"> Cadastrar veículo </a>
-        <a href="/frontend/html/veiculos.html"> Veículos </a>
+        <a th:href="@{/}"> Início </a>
+        <a th:href="@{/veiculos/cadastro}"> Cadastrar veículo </a>
+        <a th:href="@{/veiculos}"> Veículos </a>
       </nav>
     </header>
 
@@ -57,73 +57,44 @@
             </tr>
           </thead>
 
-          <!-- CORPO DA TABELA -->
+          <!-- ================================= -->
+          <!-- CORPO DINÂMICO DA TABELA -->
+          <!-- ================================= -->
           <tbody>
-            <!-- VEÍCULO 1 -->
-            <tr>
-              <td>1</td>
+            <!--
+                        Para cada veículo existente
+                        na lista "veiculos",
+                        o Thymeleaf cria uma nova linha.
+                    -->
 
-              <td>CBC1D23</td>
+            <tr th:each="veiculo : ${veiculos}">
+              <!-- ID ainda não está sendo
+                             trabalhado pelo objeto Java -->
+              <td>-</td>
 
-              <td>Civic</td>
+              <!-- PLACA -->
+              <td th:text="${veiculo.placa}">Placa</td>
 
-              <td>Carro</td>
+              <!-- MODELO -->
+              <td th:text="${veiculo.modelo}">Modelo</td>
 
-              <td>R$ 10,00</td>
+              <!-- TIPO -->
+              <td th:text="${veiculo.tipo}">Tipo</td>
 
-              <td>3</td>
+              <!-- VALOR POR HORA -->
+              <td th:text="${veiculo.valorHora}">Valor</td>
 
-              <td>Sim</td>
+              <!-- HORAS ESTACIONADO -->
+              <td th:text="${veiculo.horasEstacionado}">Horas</td>
 
+              <!-- SITUAÇÃO -->
+              <td th:text="${veiculo.estacionado ? 'Sim' : 'Não'}">Situação</td>
+
+              <!-- AÇÕES -->
               <td>
-                <button type="button" class="btn-editar" >Editar</button>
-                <button type="button" class="btn-excluir" >Excluir</button>
-              </td>
-            </tr>
+                <button type="button" class="btn-editar">Editar</button>
 
-            <!-- VEÍCULO 2 -->
-            <tr>
-              <td>2</td>
-
-              <td>XYZ9A87</td>
-
-              <td>CB 500</td>
-
-              <td>Moto</td>
-
-              <td>R$ 7,00</td>
-
-              <td>6</td>
-
-              <td>Sim</td>
-
-              <td>
-                <button type="button">Editar</button>
-
-                <button type="button">Excluir</button>
-              </td>
-            </tr>
-
-            <!-- VEÍCULO 3 -->
-            <tr>
-              <td>3</td>
-
-              <td>DEF4G56</td>
-
-              <td>Corolla</td>
-
-              <td>Carro</td>
-
-              <td>R$ 12,00</td>
-
-              <td>0</td>
-
-              <td>Não</td>
-
-              <td>
-                <button type="button">Editar</button>
-
-                <button type="button">Excluir</button>
+                <button type="button" class="btn-excluir">Excluir</button>
               </td>
             </tr>
           </tbody>
@@ -139,7 +110,7 @@
 
         <p>Deseja cadastrar outro veículo?</p>
 
-        <a href="/frontend/html/cadastro.html"> Cadastrar novo veículo </a>
+        <a th:href="@{/veiculos/cadastro}"> Cadastrar novo veículo </a>
       </section>
     </main>
 

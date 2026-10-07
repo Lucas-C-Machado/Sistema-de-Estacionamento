@@ -8,11 +8,11 @@ CREATE TABLE IF NOT EXISTS veiculo (
     valor_hora DECIMAL(10,2) NOT NULL,
     horas_estacionado INT NOT NULL DEFAULT 0,
     estacionado BOOLEAN NOT NULL DEFAULT FALSE,
-    tipo VARCHAR(20) NOT NULL
+    tipo VARCHAR(20) NOT NULL,
+    quantidade_portas INT NULL,  -- Específico para Carro (permite nulo caso seja Moto)
+    cilindradas INT NULL         -- Específico para Moto (permite nulo caso seja Carro)
 );
 
 SELECT * FROM veiculo;
-
-
 
 

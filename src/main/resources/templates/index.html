@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sistema para gerenciamento de veículos de um estacionamento."/>
 
-    <!-- Ligação com o arquivo CSS externo -->
-    <link rel="stylesheet" href="css/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"/>
+
+    <!-- CSS processado pelo Spring Boot -->
+    <link rel="stylesheet" th:href="@{/index.css}" />
 
     <title>Sistema de Estacionamento</title>
   </head>
@@ -18,13 +19,18 @@
 
     <header class="site-header">
       <h1 class="header-title">Sistema de Estacionamento</h1>
+
       <p class="header-subtitle">Gerenciamento de veículos</p>
 
-      <!-- Navegação principal -->
+      <!-- Navegação através das rotas do Spring -->
       <nav class="main-nav">
-        <a href="index.html" class="nav-link"> Início </a>
-        <a href="html/cadastro.html" class="nav-link"> Cadastrar veículo </a>
-        <a href="html/veiculos.html" class="nav-link"> Veículos </a>
+        <a th:href="@{/}" class="nav-link"> Início </a>
+
+        <a th:href="@{/veiculos/cadastro}" class="nav-link">
+          Cadastrar veículo
+        </a>
+
+        <a th:href="@{/veiculos}" class="nav-link"> Veículos </a>
       </nav>
     </header>
 
@@ -54,8 +60,11 @@
 
         <ul class="service-list">
           <li class="service-item">Cadastrar novos veículos</li>
+
           <li class="service-item">Consultar veículos cadastrados</li>
+
           <li class="service-item">Visualizar informações dos veículos</li>
+
           <li class="service-item">Acompanhar veículos estacionados</li>
         </ul>
       </section>
@@ -66,14 +75,22 @@
 
         <article class="quick-access-card">
           <h3 class="card-heading">Cadastrar veículo</h3>
+
           <p class="card-desc">Registre um novo veículo no sistema.</p>
-          <a href="html/cadastro.html" class="btn-cadastrar"> Ir para cadastro </a>
+
+          <a th:href="@{/veiculos/cadastro}" class="btn-cadastrar">
+            Ir para cadastro
+          </a>
         </article>
 
         <article class="quick-access-card">
           <h3 class="card-heading">Consultar veículos</h3>
-          <p class="card-desc">Consulte os veículos cadastrados no estacionamento.</p>
-          <a href="html/veiculos.html" class="btn-consultar"> Ver veículos </a>
+
+          <p class="card-desc">
+            Consulte os veículos cadastrados no estacionamento.
+          </p>
+
+          <a th:href="@{/veiculos}" class="btn-consultar"> Ver veículos </a>
         </article>
       </section>
     </main>
@@ -84,6 +101,7 @@
 
     <footer class="site-footer">
       <p class="footer-text">Sistema de Estacionamento</p>
+
       <p class="footer-text">Projeto desenvolvido para fins educacionais.</p>
     </footer>
   </body>
