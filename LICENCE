@@ -1,0 +1,208 @@
+LICENÇA EDUCACIONAL NÃO COMERCIAL
+Sistema de Estacionamento
+
+Copyright © 2026 Lucas Machado
+Projeto desenvolvido no contexto educacional do Senac.
+
+============================================================
+1. FINALIDADE
+============================================================
+
+O Sistema de Estacionamento é um projeto desenvolvido com finalidade
+educacional, destinado ao estudo e à aprendizagem de conceitos relacionados
+ao desenvolvimento de sistemas, incluindo programação orientada a objetos,
+desenvolvimento web, persistência de dados, banco de dados e tecnologias
+associadas.
+
+Esta licença estabelece as condições para utilização, estudo, modificação
+e redistribuição deste projeto.
+
+============================================================
+2. PERMISSÕES
+============================================================
+
+É concedida permissão, gratuitamente, para:
+
+a) utilizar o código-fonte para fins educacionais e de aprendizagem;
+
+b) estudar e analisar o funcionamento do projeto;
+
+c) modificar, adaptar e evoluir o código para fins educacionais e
+não comerciais;
+
+d) utilizar partes do código em exercícios, demonstrações, atividades
+acadêmicas e projetos educacionais não comerciais;
+
+e) criar versões derivadas do projeto;
+
+f) redistribuir cópias do projeto original ou de versões modificadas,
+desde que sejam respeitadas todas as condições desta licença.
+
+============================================================
+3. CONDIÇÕES PARA REDISTRIBUIÇÃO
+============================================================
+
+A redistribuição do projeto, integral ou parcial, original ou modificado,
+é permitida desde que:
+
+a) esta licença seja mantida junto ao código redistribuído;
+
+b) os avisos de autoria e atribuição existentes sejam preservados;
+
+c) seja informado de maneira clara quando alterações significativas
+forem realizadas no projeto original;
+
+d) a redistribuição permaneça destinada a fins educacionais e
+não comerciais;
+
+e) versões derivadas distribuídas sejam disponibilizadas sob estes
+mesmos termos de licença.
+
+A redistribuição não poderá sugerir que versões modificadas foram criadas,
+aprovadas, certificadas ou oficialmente mantidas pelo autor original ou
+pelo Senac, salvo quando houver autorização expressa para isso.
+
+============================================================
+4. ATRIBUIÇÃO
+============================================================
+
+Ao utilizar ou redistribuir este projeto ou partes substanciais dele,
+deverá ser preservada atribuição ao projeto original.
+
+A atribuição poderá ser apresentada da seguinte forma:
+
+"Baseado no projeto Sistema de Estacionamento, desenvolvido por
+Lucas Machado no contexto educacional do Senac."
+
+Modificações realizadas por terceiros deverão ser identificadas como tais,
+evitando atribuir ao autor original alterações que não tenham sido
+realizadas por ele.
+
+============================================================
+5. USO NÃO COMERCIAL
+============================================================
+
+Este projeto é disponibilizado para utilização não comercial.
+
+Não é concedida, por esta licença, autorização para vender, sublicenciar
+com finalidade comercial, comercializar ou explorar economicamente o
+projeto, suas versões derivadas ou partes substanciais de seu código.
+
+O uso comercial dependerá de autorização específica e separada dos
+respectivos titulares dos direitos aplicáveis.
+
+============================================================
+6. MODIFICAÇÕES E OBRAS DERIVADAS
+============================================================
+
+É permitido modificar o projeto para fins educacionais e não comerciais.
+
+Caso uma versão modificada seja redistribuída:
+
+a) deverá permanecer sob esta mesma licença;
+
+b) deverá preservar os avisos de autoria do projeto original;
+
+c) deverá indicar que se trata de uma versão modificada;
+
+d) não poderá atribuir ao autor original a responsabilidade pelas
+modificações realizadas por terceiros.
+
+============================================================
+7. SENAC
+============================================================
+
+Este projeto foi desenvolvido no contexto educacional do Senac.
+
+A referência ao Senac neste arquivo descreve o contexto educacional
+informado pelo autor e não concede, por si só, autorização para utilização
+de nomes, marcas, logotipos, identidade visual ou outros sinais distintivos
+da instituição.
+
+A redistribuição ou modificação deste projeto não implica endosso,
+certificação, parceria ou aprovação institucional pelo Senac.
+
+============================================================
+8. MARCAS E IDENTIDADE VISUAL
+============================================================
+
+Esta licença aplica-se ao código e aos materiais do projeto sobre os quais
+o autor ou os respectivos titulares possam conceder as permissões aqui
+descritas.
+
+Ela não concede automaticamente direitos sobre marcas, logotipos,
+identidade visual ou outros ativos protegidos pertencentes ao Senac ou a
+terceiros.
+
+============================================================
+9. CÓDIGO E COMPONENTES DE TERCEIROS
+============================================================
+
+Bibliotecas, frameworks, dependências e outros componentes de terceiros
+utilizados pelo projeto permanecem sujeitos às suas próprias licenças.
+
+Esta licença não substitui nem modifica os termos aplicáveis a componentes
+de terceiros.
+
+Entre as tecnologias que podem ser utilizadas pelo projeto estão Java,
+Spring Boot, Thymeleaf, Maven, MySQL e outras dependências definidas no
+projeto.
+
+O usuário é responsável por observar as licenças correspondentes desses
+componentes.
+
+============================================================
+10. AUSÊNCIA DE GARANTIAS
+============================================================
+
+O projeto é fornecido "NO ESTADO EM QUE SE ENCONTRA", para fins
+educacionais.
+
+Não são fornecidas garantias expressas ou implícitas quanto à adequação
+do software a uma finalidade específica, disponibilidade, desempenho,
+ausência de erros ou compatibilidade com ambientes específicos.
+
+O uso, estudo, modificação e execução do projeto são realizados sob
+responsabilidade do usuário, na extensão permitida pela legislação
+aplicável.
+
+============================================================
+11. LIMITAÇÃO DE RESPONSABILIDADE
+============================================================
+
+Na extensão permitida pela legislação aplicável, o autor não será
+responsável por danos decorrentes da utilização, modificação,
+redistribuição ou impossibilidade de utilização deste projeto.
+
+============================================================
+12. ACEITAÇÃO DOS TERMOS
+============================================================
+
+Ao utilizar, modificar ou redistribuir o projeto nos termos aqui
+permitidos, o usuário concorda em observar as condições estabelecidas
+nesta licença.
+
+Caso não concorde com estas condições, não deverá exercer os direitos
+adicionais concedidos por esta licença.
+
+============================================================
+13. LICENCIAMENTO COMERCIAL
+============================================================
+
+As permissões concedidas neste documento destinam-se exclusivamente aos
+usos não comerciais aqui previstos.
+
+Eventuais permissões para utilização comercial deverão ser objeto de
+autorização específica e separada dos titulares dos direitos aplicáveis.
+
+============================================================
+14. OBSERVAÇÃO
+============================================================
+
+Esta é uma licença personalizada para um projeto educacional e não
+corresponde a uma licença open source aprovada pela Open Source Initiative
+(OSI).
+
+Para utilização institucional, publicação oficial ou situações que
+envolvam direitos do Senac ou de terceiros, recomenda-se que os termos
+sejam submetidos à revisão institucional apropriada.
