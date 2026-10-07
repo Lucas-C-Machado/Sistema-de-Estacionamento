@@ -61,16 +61,12 @@
           <!-- CORPO DINÂMICO DA TABELA -->
           <!-- ================================= -->
           <tbody>
-            <!--
-                        Para cada veículo existente
-                        na lista "veiculos",
-                        o Thymeleaf cria uma nova linha.
-                    -->
+            <!--Para cada veículo existente na lista "veiculos", o Thymeleaf cria uma nova linha.-->
 
             <tr th:each="veiculo : ${veiculos}">
-              <!-- ID ainda não está sendo
-                             trabalhado pelo objeto Java -->
-              <td>-</td>
+
+              <!-- ID -->
+              <td th:text="${veiculo.id}">1</td>
 
               <!-- PLACA -->
               <td th:text="${veiculo.placa}">Placa</td>
@@ -92,9 +88,14 @@
 
               <!-- AÇÕES -->
               <td>
-                <button type="button" class="btn-editar">Editar</button>
+                  <!-- EDITAR -->
+                  <a th:href="@{/veiculos/editar/{id}(id=${veiculo.id})}" class="btn-editar">Editar</a>
 
-                <button type="button" class="btn-excluir">Excluir</button>
+                  <!-- EXCLUIR -->
+                  <form th:action="@{/veiculos/excluir/{id}(id=${veiculo.id})}" method="post" onsubmit="return confirm('Deseja realmente excluir este veículo?');">
+                      <button type="submit" class="btn-excluir"> Excluir</button>
+                  </form>
+
               </td>
             </tr>
           </tbody>

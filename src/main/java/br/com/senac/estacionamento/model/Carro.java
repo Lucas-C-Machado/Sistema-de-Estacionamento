@@ -15,8 +15,8 @@ public class Carro extends Veiculo {
     }
 
     // Construtor utilizado para reconstruir um carro vindo do banco
-    public Carro(String placa, String modelo, double valorHora, int quantidadePortas, int horasEstacionado, boolean estacionado) {
-        super(placa, modelo, valorHora, horasEstacionado, estacionado);
+    public Carro(int id, String placa, String modelo, double valorHora, int quantidadePortas, int horasEstacionado, boolean estacionado) {
+        super(id, placa, modelo, valorHora, horasEstacionado, estacionado);
 
         if (quantidadePortas <= 0) {
             throw new IllegalArgumentException("A quantidade de portas deve ser válida.");

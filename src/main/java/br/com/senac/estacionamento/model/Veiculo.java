@@ -3,6 +3,7 @@ package br.com.senac.estacionamento.model;
 import br.com.senac.estacionamento.contract.Calculavel;
 
 public abstract class Veiculo implements Calculavel {
+    private int id;
     private String placa;
     private String modelo;
     private double valorHora;
@@ -27,7 +28,7 @@ public abstract class Veiculo implements Calculavel {
     }
 
     // Segundo Construtor
-    public Veiculo(String placa, String modelo, double valorHora, int horasEstacionado, boolean estacionado) {
+    public Veiculo(int id, String placa, String modelo, double valorHora, int horasEstacionado, boolean estacionado) {
 
         if (placa == null || placa.isBlank()) {
             throw new IllegalArgumentException("A placa não pode estar vazia.");
@@ -41,6 +42,7 @@ public abstract class Veiculo implements Calculavel {
             throw new IllegalArgumentException("O valor por hora deve ser maior que zero.");
         }
 
+        this.id = id;
         this.placa = placa;
         this.modelo = modelo;
         this.valorHora = valorHora;
@@ -76,6 +78,10 @@ public abstract class Veiculo implements Calculavel {
             valor *= 0.90;
         }
         return valor;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getPlaca() {

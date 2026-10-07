@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Editar veículo | Sistema de Estacionamento</title>
+
+    <!--Ajuste este caminho caso seu CSS esteja em outro local dentro de static.-->
+    <link rel="stylesheet" th:href="@{/cadastro.css}" />
+  </head>
+
+  <body>
+    <!-- ========================================= -->
+    <!-- CABEÇALHO -->
+    <!-- ========================================= -->
+    <header>
+      <h1>Sistema de Estacionamento</h1>
+
+      <p>Gerenciamento de veículos</p>
+
+      <nav>
+        <a th:href="@{/}"> Início </a>
+        <a th:href="@{/veiculos/cadastro}"> Cadastrar veículo </a>
+        <a th:href="@{/veiculos}"> Veículos </a>
+      </nav>
+    </header>
+
+    <!-- ========================================= -->
+    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ========================================= -->
+    <main>
+      <section>
+        <h2>Editar veículo</h2>
+
+        <p>Altere os dados necessários e clique em<strong>Salvar alterações</strong>.</p>
+
+        <!-- ================================= -->
+        <!-- FORMULÁRIO DE EDIÇÃO -->
+        <!-- ================================= -->
+        <form class="vehicle-form" th:action="@{/veiculos/atualizar}" method="post">
+          <!-- ============================= -->
+          <!-- ID -->
+          <!-- ============================= -->
+
+          <!--O ID precisa ser enviado ao Controller, mas não deve ser alterado pelo usuário.-->
+
+          <input type="hidden" name="id" th:value="${veiculo.id}" />
+
+          <!-- ============================= -->
+          <!-- PLACA -->
+          <!-- ============================= -->
+          <div class="form-group">
+            <label for="placa"> Placa </label>
+            <input type="text" id="placa" name="placa" th:value="${veiculo.placa}" maxlength="10" required/>
+          </div>
+
+          <!-- ============================= -->
+          <!-- MODELO -->
+          <!-- ============================= -->
+          <div class="form-group">
+            <label for="modelo"> Modelo </label>
+            <input type="text" id="modelo" name="modelo" th:value="${veiculo.modelo}" required/>
+          </div>
+
+          <!-- ============================= -->
+          <!-- TIPO -->
+          <!-- ============================= -->
+
+          <!--Nesta etapa, não vamos permitir que o usuário transforme um Carro em Moto ou vice-versa.
+            Porém, o Controller ainda precisa receber o tipo. Por isso usamos input hidden. -->
+
+          <input type="hidden" name="tipo" th:value="${veiculo.tipo}" />
+
+          <div class="form-group">
+            <label> Tipo </label>
+            <input type="text" th:value="${veiculo.tipo}" disabled />
+          </div>
+
+          <!-- ============================= -->
+          <!-- VALOR POR HORA -->
+          <!-- ============================= -->
+          <div class="form-group">
+            <label for="valorHora"> Valor por hora </label>
+            <input type="number" id="valorHora" name="valorHora" th:value="${veiculo.valorHora}" min="0.01" step="0.01" required/>
+          </div>
+
+          <!-- ============================= -->
+          <!-- DADOS ESPECÍFICOS DE CARRO -->
+          <!-- ============================= -->
+          <div class="form-group" th:if="${veiculo.tipo == 'CARRO'}">
+            <label for="quantidadePortas"> Quantidade de portas </label>
+            <input type="number" id="quantidadePortas" name="quantidadePortas" th:value="${veiculo.quantidadePortas}" min="1"/>
+          </div>
+
+          <!-- ============================= -->
+          <!-- DADOS ESPECÍFICOS DE MOTO -->
+          <!-- ============================= -->
+          <div class="form-group" th:if="${veiculo.tipo == 'MOTO'}">
+            <label for="cilindradas"> Cilindradas </label>
+            <input type="number" id="cilindradas" name="cilindradas" th:value="${veiculo.cilindradas}" min="1"/>
+          </div>
+
+          <!-- ============================= -->
+          <!-- BOTÕES -->
+          <!-- ============================= -->
+          <div class="form-actions">
+            <button type="submit">Salvar alterações</button>
+            <a th:href="@{/veiculos}"> Cancelar </a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- ========================================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================================= -->
+    <footer>
+      <p>Sistema de Estacionamento</p>
+      <p>Projeto desenvolvido para fins educacionais.</p>
+    </footer>
+  </body>
+</html>

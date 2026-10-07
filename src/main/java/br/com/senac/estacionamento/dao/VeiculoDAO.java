@@ -45,9 +45,9 @@ public class VeiculoDAO {
             // DADOS COMUNS A TODO VEÍCULO
             // ==========================================
 
-            comando.setString(1,veiculo.getPlaca());
+            comando.setString(1, veiculo.getPlaca());
             comando.setString(2, veiculo.getModelo());
-            comando.setDouble(3,veiculo.getValorHora());
+            comando.setDouble(3, veiculo.getValorHora());
             comando.setInt(4, veiculo.getHorasEstacionado());
             comando.setBoolean(5, veiculo.isEstacionado());
             comando.setString(6, veiculo.getTipo());
@@ -110,6 +110,7 @@ public class VeiculoDAO {
                 // DADOS COMUNS
                 // ======================================
 
+                int id = resultado.getInt("id");
                 String placa = resultado.getString("placa");
                 String modelo = resultado.getString("modelo");
                 double valorHora = resultado.getDouble("valor_hora");
@@ -139,7 +140,7 @@ public class VeiculoDAO {
                         continue;
                     }
 
-                    veiculo = new Carro(placa, modelo, valorHora, quantidadePortas, horasEstacionado, estacionado);
+                    veiculo = new Carro(id, placa, modelo, valorHora, quantidadePortas, horasEstacionado, estacionado);
 
                     // ======================================
                     // RECONSTRUIR MOTO
@@ -153,7 +154,7 @@ public class VeiculoDAO {
                         continue;
                     }
 
-                    veiculo = new Moto(placa, modelo, valorHora, cilindradas, horasEstacionado, estacionado);
+                    veiculo = new Moto(id, placa, modelo, valorHora, cilindradas, horasEstacionado, estacionado);
 
                 } else {
                     System.out.println("Tipo de veículo desconhecido: " + tipo);
@@ -164,34 +165,109 @@ public class VeiculoDAO {
             }
 
         } catch (SQLException erro) {
-            System.out.println("Erro ao consultar veículos: "+ erro.getMessage());
+            System.out.println("Erro ao consultar veículos: " + erro.getMessage());
         }
 
         return veiculos;
     }
 
-    // ==================================================
-    // UPDATE
-    // ATUALIZAR VALOR POR HORA
-    // ==================================================
-    public boolean atualizarValorHora(
-            String placa,
-            double novoValor) {
+    public Veiculo buscarPorId(int id) {
 
         String sql = """
-                UPDATE veiculo
-                SET valor_hora = ?
-                WHERE placa = ?
+                SELECT *
+                FROM veiculo
+                WHERE id = ?
                 """;
 
         try (
                 Connection conexao = Conexao.conectar();
                 PreparedStatement comando = conexao.prepareStatement(sql)) {
 
-            comando.setDouble(1, novoValor);
-            comando.setString(2, placa);
+            comando.setInt(1, id);
 
+            try (
+                    ResultSet resultado = comando.executeQuery()) {
+
+                if (resultado.next()) {
+
+                    String placa = resultado.getString("placa");
+                    String modelo = resultado.getString("modelo");
+                    double valorHora = resultado.getDouble("valor_hora");
+                    int horasEstacionado = resultado.getInt("horas_estacionado");
+                    boolean estacionado = resultado.getBoolean("estacionado");
+                    String tipo = resultado.getString("tipo");
+
+                    if (tipo.equalsIgnoreCase("CARRO")) {
+                        int quantidadePortas = resultado.getInt("quantidade_portas");
+
+                        if (resultado.wasNull()) {
+                            return null;
+                        }
+
+                        return new Carro(id, placa, modelo, valorHora, quantidadePortas, horasEstacionado, estacionado);
+                    }
+
+                    if (tipo.equalsIgnoreCase("MOTO")) {
+
+                        int cilindradas = resultado.getInt("cilindradas");
+
+                        if (resultado.wasNull()) {
+                            return null;
+                        }
+
+                        return new Moto(id, placa, modelo, valorHora, cilindradas, horasEstacionado, estacionado);
+                    }
+                }
+            }
+        } catch (SQLException erro) {
+            System.out.println("Erro ao buscar veículo: " + erro.getMessage());
+        }
+        return null;
+    }
+
+    // ==================================================
+    // UPDATE
+    // ATUALIZAR VALOR POR HORA
+    // ==================================================
+    public boolean atualizar(Veiculo veiculo) {
+
+        String sql = """
+                UPDATE veiculo
+                SET placa = ?,
+                    modelo = ?,
+                    valor_hora = ?,
+                    tipo = ?,
+                    quantidade_portas = ?,
+                    cilindradas = ?
+                WHERE id = ?
+                """;
+
+        try (
+                Connection conexao = Conexao.conectar();
+                PreparedStatement comando =
+                conexao.prepareStatement(sql)
+        ) {
+
+            comando.setString(1, veiculo.getPlaca());
+            comando.setString(2, veiculo.getModelo());
+            comando.setDouble(3, veiculo.getValorHora());
+            comando.setString(4, veiculo.getTipo());
+
+            if (veiculo instanceof Carro carro) {
+                comando.setInt(5, carro.getQuantidadePortas());
+                comando.setNull(6, Types.INTEGER);
+
+            } else if (veiculo instanceof Moto moto) {
+                comando.setNull(5, Types.INTEGER);
+                comando.setInt(6, moto.getCilindradas());
+
+            } else {
+                return false;
+            }
+
+            comando.setInt(7, veiculo.getId());
             int linhas = comando.executeUpdate();
+
             return linhas > 0;
 
         } catch (SQLException erro) {
@@ -203,23 +279,27 @@ public class VeiculoDAO {
     // ==================================================
     // DELETE
     // ==================================================
-    public boolean excluir(String placa) {
+    public boolean excluir(int id) {
 
         String sql = """
-                DELETE FROM veiculo
-                WHERE placa = ?
-                """;
+            DELETE FROM veiculo
+            WHERE id = ?
+            """;
 
         try (
-                Connection conexao = Conexao.conectar();
-                PreparedStatement comando = conexao.prepareStatement(sql)) {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement comando = conexao.prepareStatement(sql)
+        ) {
 
-            comando.setString(1, placa);
-            int linhas = comando.executeUpdate();
-            return linhas > 0;
+            comando.setInt(1, id);
+            int linhasAfetadas = comando.executeUpdate();
+            System.out.println("Veículo excluído. Linhas afetadas: " + linhasAfetadas);
+
+            return linhasAfetadas > 0;
 
         } catch (SQLException erro) {
             System.out.println("Erro ao excluir veículo: " + erro.getMessage());
+            
             return false;
         }
     }

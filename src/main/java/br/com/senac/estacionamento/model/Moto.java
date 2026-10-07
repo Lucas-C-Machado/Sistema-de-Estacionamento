@@ -15,8 +15,8 @@ public class Moto extends Veiculo {
     }
 
     // Construtor utilizado para reconstruir uma moto vinda do banco
-    public Moto(String placa, String modelo, double valorHora, int cilindradas, int horasEstacionado, boolean estacionado) {
-        super(placa, modelo, valorHora, horasEstacionado, estacionado);
+    public Moto(int id, String placa, String modelo, double valorHora, int cilindradas, int horasEstacionado, boolean estacionado) {
+        super(id, placa, modelo, valorHora, horasEstacionado, estacionado);
 
         if (cilindradas <= 0) {
             throw new IllegalArgumentException("A cilindrada deve ser válida.");
